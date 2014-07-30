@@ -1,0 +1,22 @@
+{
+  "name": "atns-ng-messages",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tbaum/atns-ng-messages",
+  "authors": [
+    "Thomas Baum <thomas.baum@atns.de>"
+  ],
+  "description": "message-helper",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": "messages.js",
+  "dependencies": {
+    "angularjs": "~1.2.21",
+    "angular-bootstrap": "~0.11.0"
+  }
+}

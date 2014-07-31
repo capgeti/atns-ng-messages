@@ -2,7 +2,7 @@
 (function() {
   var module;
 
-  module = angular.module('atns.ng.messages', ['ui.bootstrap']);
+  module = angular.module('atns.ng.messages', ['ui.bootstrap', 'partials/confirm-dialog.html']);
 
   module.controller('ConfirmDialog', function($scope, $modalInstance, title, message, aktionOK) {
     $scope.title = title;
@@ -38,6 +38,10 @@
         return action(args);
       });
     };
+  });
+
+  angular.module('partials/confirm-dialog.html', []).run(function($templateCache) {
+    return $templateCache.put('partials/confirm-dialog.html', "<div class=\"modal-header\">\n    <button type=\"button\" class=\"close\" ng-click=\"cancel()\">×</button>\n    <h3>{{title}}</h3>\n</div>\n<div class=\"modal-body\">\n    <p>{{message}}</p>\n</div>\n<div class=\"modal-footer\">\n    <button class=\"btn btn-default btn-sm\" ng-click=\"cancel()\" tabindex=\"-1\">Abbrechen</button>\n    <button class=\"btn btn-warning btn-sm\" ng-click=\"ok()\">\n        {{aktionOK}}\n    </button>\n</div>");
   });
 
 }).call(this);

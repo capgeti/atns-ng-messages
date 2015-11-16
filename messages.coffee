@@ -1,20 +1,20 @@
 module = angular.module 'atns.ng.messages', ['ui.bootstrap', 'partials/confirm-dialog.html']
 
-module.controller 'ConfirmDialog', ($scope, $modalInstance, title, message, aktionOK)->
+module.controller 'ConfirmDialog', ($scope, $uibModalInstance, title, message, aktionOK)->
     $scope.title = title
     $scope.message = message
     $scope.aktionOK = aktionOK
 
     $scope.ok = ->
-        do $modalInstance.close
+        do $uibModalInstance.close
 
     $scope.cancel = ->
-        $modalInstance.dismiss 'cancel'
+        $uibModalInstance.dismiss 'cancel'
 
 
-module.run ($rootScope, $modal)->
+module.run ($rootScope, $uibModal)->
     $rootScope.confirmDialog = (title, message, aktionOK, action, args)->
-        dialog = $modal.open
+        dialog = $uibModal.open
             templateUrl: 'partials/confirm-dialog.html'
             controller: 'ConfirmDialog'
             resolve:
